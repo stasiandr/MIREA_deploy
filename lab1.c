@@ -47,10 +47,10 @@ int main() {
             return 0;
         }
 
-        error_flag =0;
+        error_flag = 0;
         B = malloc(sizeof(Matrix));
 
-        if (strcmp(op_name, "POW"))
+        if (strcmp(op_name, "POW") && strcmp(op_name, "TRANS"))
         {
             printf("Enter n & m for second matrix:\n");
             scanf("%d %d", &n2, &m2);
