@@ -76,23 +76,3 @@ int args_to_dict(int argc, char **argv, dict *a)
     }
 }
 
-
-int main(int argc, char **argv)
-{
-    dict *a;
-    a = (dict*) malloc(sizeof(dict));
-    a->size = 0;
-
-    args_to_dict(argc, argv, a);
-
-    printf("%d\n", a->size);
-    for (size_t i = 0; i < a->size;i++)
-    {
-        printf("%s: %s\n", a->elem_vector[i]->key, a->elem_vector[i]->value);
-    }
-
-
-    free(a);
-    return 0;
-}
-
