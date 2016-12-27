@@ -21,6 +21,7 @@ void  printContact(Contacts* A);
 void  changeContact(Contacts* A, int id, char* name, char* number);
 char* getByName(Contacts* A, char* name);
 char* getByNumber(Contacts* A, char* number);
+int   getIdByName(Contacts* A, char* name);
 void  printSorted(Contacts* A);
 void  export(Contacts* A, char* filename);
 void  import(Contacts* A, char* filename);
@@ -82,6 +83,18 @@ char* getByNumber(Contacts *A, char* number)
         }
     }
     return "NOT FOUND!";
+}
+
+int   getIdByName(Contacts* A, char* name)
+{
+    for (int i = 0; i < A->size; i++)
+    {
+        if (!strcmp(A->vec[i]->name, name))
+        {
+            return i;
+        }
+    }
+    return -1;
 }
 
 void printSorted(Contacts *A)
@@ -154,7 +167,7 @@ void import(Contacts *A, char *filename)
         if (i % 2 == 1)
         {
             printf("%s %s\n", line, buff);
-            addContact(A, line, buff);
+            addContact(A, buff, line);
         }
         i++;
     }
